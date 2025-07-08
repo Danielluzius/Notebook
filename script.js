@@ -6,10 +6,15 @@ let trashedNotesTitle = []; // Array für Papierkorb Notizen Titel
 let trashedNotes = []; // Array für Papierkorb Notizen Inhalt
 
 function init() {
+  saveToLocalStorage();
+  getFromLocalStorage();
   renderNotes();
+  renderArchivedNotes();
+  renderTrashedNotes();
 }
 
-// Notizen Rendern
+// Notizen anzeigen
+// Diese Funktion wird aufgerufen, um die Notizen im HTML anzuzeigen.
 function renderNotes() {
   let contentRef = document.getElementById('content');
   contentRef.innerHTML = '';
@@ -61,8 +66,8 @@ function pushNoteToArchive(indexNote) {
 
   let archivedTitle = notesTitle.splice(indexNote, 1);
   archivedNotesTitle.push(archivedTitle);
-  renderNotes();
-  renderArchivedNotes();
+
+  init();
 }
 
 // Notizen in den Papierkorb verschieben
@@ -72,8 +77,8 @@ function pushNoteToTrash(indexNote) {
 
   let trashNotesTitle = notesTitle.splice(indexNote, 1);
   trashedNotesTitle.push(trashNotesTitle);
-  renderNotes();
-  renderTrashedNotes();
+
+  init();
 }
 
 // archivierte Notizen zurück in die Notizen verschieben
@@ -84,8 +89,7 @@ function pushArchivedNoteToNotes(indexArchivedNote) {
   let restoredTitle = archivedNotesTitle.splice(indexArchivedNote, 1);
   notesTitle.push(restoredTitle);
 
-  renderNotes();
-  renderArchivedNotes();
+  init();
 }
 
 // archivierte Notizen in den Papierkorb verschieben
@@ -96,8 +100,7 @@ function pushArchivedNoteToTrash(indexArchivedNote) {
   let trashedTitle = archivedNotesTitle.splice(indexArchivedNote, 1);
   trashedNotesTitle.push(trashedTitle);
 
-  renderArchivedNotes();
-  renderTrashedNotes();
+  init();
 }
 
 // Papierkorb Notizen zurück in die Notizen verschieben
@@ -108,14 +111,15 @@ function pushRestoredNoteToNotes(indexTrashedNote) {
   let restoredTitle = trashedNotesTitle.splice(indexTrashedNote, 1);
   notesTitle.push(restoredTitle);
 
-  renderNotes();
-  renderTrashedNotes();
+  init();
 }
 
 // Notizen löschen
 function deleteNote(indexTrashedNote) {
+  trashedNotesTitle.splice(indexTrashedNote, 1);
   trashedNotes.splice(indexTrashedNote, 1);
-  renderTrashedNotes();
+
+  init();
 }
 
 // Funktion zum Speichern der Notizen
@@ -127,20 +131,69 @@ function saveData() {
     notes.push(contentInputRef.value);
   }
 
-  saveToLocalStorage();
-
-  renderNotes();
+  init();
   contentInputRef.value = '';
 }
 
+// Funktion zum Speichern der Notizen in den Local Storage
+// Diese Funktion wird aufgerufen, um die Notizen im Local Storage zu speichern.
+
 function saveToLocalStorage() {
+  localStorage.setItem('notesTitle', JSON.stringify(notesTitle));
   localStorage.setItem('notes', JSON.stringify(notes));
+  localStorage.setItem('archivedNotesTitle', JSON.stringify(archivedNotesTitle));
+  localStorage.setItem('archivedNotes', JSON.stringify(archivedNotes));
+  localStorage.setItem('trashedNotesTitle', JSON.stringify(trashedNotesTitle));
+  localStorage.setItem('trashedNotes', JSON.stringify(trashedNotes));
 }
 
 function getFromLocalStorage() {
+  getNotesFromLocalStorage();
+  getArchivedFromLocalStorage();
+  getTrashedFromLocalStorage();
+}
+
+// Diese Funktion wird aufgerufen, um die Notizen aus dem Local Storage zu laden.
+// Sie überprüft, ob die Notizen im Local Storage vorhanden sind und lädt sie in die
+
+function getNotesFromLocalStorage() {
   let myArr = JSON.parse(localStorage.getItem('notes'));
+  let myArrTitle = JSON.parse(localStorage.getItem('notesTitle'));
+
   if (myArr === null) {
     myArr = [];
   }
+  if (myArrTitle === null) {
+    myArrTitle = [];
+  }
   notes = myArr;
+  notesTitle = myArrTitle;
+}
+
+function getArchivedFromLocalStorage() {
+  let myArrArchived = JSON.parse(localStorage.getItem('archivedNotes'));
+  let myArrArchivedTitle = JSON.parse(localStorage.getItem('archivedNotesTitle'));
+
+  if (myArrArchived === null) {
+    myArrArchived = [];
+  }
+  if (myArrArchivedTitle === null) {
+    myArrArchivedTitle = [];
+  }
+  archivedNotes = myArrArchived;
+  archivedNotesTitle = myArrArchivedTitle;
+}
+
+function getTrashedFromLocalStorage() {
+  let myArrTrashed = JSON.parse(localStorage.getItem('trashedNotes'));
+  let myArrTrashedTitle = JSON.parse(localStorage.getItem('trashedNotesTitle'));
+
+  if (myArrTrashed === null) {
+    myArrTrashed = [];
+  }
+  if (myArrTrashedTitle === null) {
+    myArrTrashedTitle = [];
+  }
+  trashedNotes = myArrTrashed;
+  trashedNotesTitle = myArrTrashedTitle;
 }
