@@ -5,6 +5,8 @@ let archivedNotes = []; // Array für archivierte Notizen Inhalt
 let trashedNotesTitle = []; // Array für Papierkorb Notizen Titel
 let trashedNotes = []; // Array für Papierkorb Notizen Inhalt
 
+// Diese Funktion wird aufgerufen, wenn die Seite geladen wird.
+// Sie initialisiert die Notizen, lädt sie aus dem Local Storage und rendert sie im HTML.
 function init() {
   saveToLocalStorage();
   getFromLocalStorage();
@@ -154,7 +156,7 @@ function getFromLocalStorage() {
 }
 
 // Diese Funktion wird aufgerufen, um die Notizen aus dem Local Storage zu laden.
-// Sie überprüft, ob die Notizen im Local Storage vorhanden sind und lädt sie in die
+// Sie überprüft, ob die Notizen im Local Storage vorhanden sind und lädt sie in die entsprechenden Arrays.
 
 function getNotesFromLocalStorage() {
   let note = JSON.parse(localStorage.getItem('notes'));

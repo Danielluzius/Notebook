@@ -12,6 +12,10 @@
 
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./styles/standart.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Rubik+Dirt&display=swap"
+        rel="stylesheet">
 </head>
 
 <body onload="init()">
@@ -20,45 +24,41 @@
         <header>
             <div class="wrapper">
                 <h1>Notizblock</h1>
-
-
-
         </header>
 
         <main>
             <div class="wrapper">
                 <section>
-
                     <div class="input-wrapper">
                         <form onsubmit="addNote(); saveData(); return false;">
                             <p>Aufgabenname</p>
-                            <input id="note_title_input" type="text" placeholder="Titel eingeben" required>
+                            <input class="input-field" id="note_title_input" type="text" placeholder="Titel eingeben"
+                                required>
                             <p>Beschreibung</p>
-                            <input id="note_content_input" type="text" placeholder="Inhalt eingeben" required>
-                            <button type="submit">Notiz hinzufügen</button>
+                            <input class="input-field" id="note_content_input" type="text" placeholder="Inhalt eingeben"
+                                required>
+                            <button class="input-btn" type="submit"> Notiz hinzufügen </button>
                         </form>
+                        <h2>Notizen</h2>
+                        <div id="content" class="note-container"></div>
+
+                        <h2>Archiv</h2>
+                        <div id="archive_content" class="note-container"></div>
+
+                        <h2>Papierkorb</h2>
+                        <div id="trash_content" class="note-container"></div>
                     </div>
 
 
-                    <h2>Notizen</h2>
-                    <div id="content"></div>
-
-                    <h2>Archiv</h2>
-                    <div id="archive_content"></div>
-
-                    <h2>Papierkorb</h2>
-                    <div id="trash_content"></div>
+                </section>
             </div>
+        </main>
 
-            </section>
-    </div>
-    </main>
-
-    <footer>
-        <div class="wrapper">
-            <p>&copy; 2025 Daniel Luzius</p>
-        </div>
-    </footer>
+        <footer>
+            <div class="wrapper">
+                <p>&copy; 2025 Daniel Luzius</p>
+            </div>
+        </footer>
 
     </div>
 
