@@ -20,35 +20,44 @@
         <header>
             <div class="wrapper">
                 <h1>Notizblock</h1>
-                <input id="note_input" type="text">
-                <button onclick="addNote(), saveData()">Notiz hinzufügen</button>
-                <h2>Notes</h2>
-                <div id="content">
 
-                </div>
-                <h2>Trash</h2>
-                <div id="trash_content">
 
-                </div>
-            </div>
 
         </header>
 
         <main>
             <div class="wrapper">
                 <section>
-                    <h2>Willkommen!</h2>
-                    <p>Dies ist dein HTML-Standard-Template.</p>
-                    <a href="#">Hier ein Link</a>
-                </section>
-            </div>
-        </main>
 
-        <footer>
-            <div class="wrapper">
-                <p>&copy; 2025 Daniel Luzius</p>
+                    <div class="input-wrapper">
+                        <form onsubmit="addNote(), saveData(); return false;">
+                            <p>Aufgabenname</p>
+                            <input id="note_title_input" type="text" placeholder="Titel eingeben">
+                            <p>Beschreibung</p>
+                            <input id="note_content_input" type="text" placeholder="Inhalt eingeben">
+                            <button type="button" onclick="addNote(), saveData()">Notiz hinzufügen</button>
+                        </form>
+                    </div>
+
+                    <h2>Notizen</h2>
+                    <div id="content"></div>
+
+                    <h2>Archiv</h2>
+                    <div id="archive_content"></div>
+
+                    <h2>Papierkorb</h2>
+                    <div id="trash_content"></div>
             </div>
-        </footer>
+
+            </section>
+    </div>
+    </main>
+
+    <footer>
+        <div class="wrapper">
+            <p>&copy; 2025 Daniel Luzius</p>
+        </div>
+    </footer>
 
     </div>
 
