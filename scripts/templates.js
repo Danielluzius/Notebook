@@ -25,7 +25,7 @@ function getArchivedNoteTemplate(indexArchivedNote) {
 function getTrashedNoteTemplate(indexTrashedNote) {
   return `
   <div class="note">
-    <h3>${trashedNotesTitle[indexTrashedNote]} ${trashedNotes[indexTrashedNote]} </h3>
+    <h3>${trashedNotesTitle[indexTrashedNote]} </h3>
     <p>${trashedNotes[indexTrashedNote]}</p>
     <div class="note-btn-style">
       <button class="note-btn" onclick="pushRestoredNoteToNotes(${indexTrashedNote})">N</button>
