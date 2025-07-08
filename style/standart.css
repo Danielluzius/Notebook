@@ -1,0 +1,72 @@
+/* === CSS RESET & BASIS === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  color: #000;
+}
+
+/* === Bilder: responsive === */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* === Links: keine Unterstreichung, Farbe vererbbar === */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* === Wrapper für Sticky Footer Layout === */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 320px;
+}
+
+/* === Globale Wrapper-Klasse === */
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 30px;
+}
+
+/* === Header === */
+header {
+  background-color: #fff;
+}
+
+/* === Main === */
+main {
+  flex: 1;
+  background-color: #fff;
+}
+
+/* === Footer === */
+footer {
+  background-color: #fff;
+}
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 15px 20px;
+  }
+
+  main .wrapper {
+    gap: 20px;
+  }
+}
