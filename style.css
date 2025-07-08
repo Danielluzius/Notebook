@@ -39,7 +39,14 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 41%;
+  min-width: 280px;
+  background-image: url('./assets/img/input-bg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 30px 0 0;
+  border-radius: 24px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .input-wrapper {
@@ -57,19 +64,20 @@ form {
   max-width: 400px;
   font-size: 1.2em;
   margin-bottom: 10px;
+  font-family: 'Fredoka', sans-serif;
+  text-align: center;
 }
 
-.input-btn {
-  border-radius: 16px;
-  border: 1px solid #ccc;
-  padding: 10px;
-  width: 50%;
-  max-width: 150px;
-  font-size: 1em;
-  margin-bottom: 10px;
+.add-note-icon {
+  width: 120px;
+  height: 120px;
   cursor: pointer;
-  margin-top: 5px;
-  padding: 8px;
+  transition: transform 0.2s ease;
+  border: none;
+}
+
+.add-note-icon:hover {
+  transform: scale(1.1);
 }
 
 .note-container {
@@ -80,14 +88,15 @@ form {
 }
 
 .note {
-  background-image: url('./assets/img/note_background.png');
+  background-image: url('./assets/img/input-bg.png');
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  width: clamp(240px, 16vw, 300px); /* flexible Breite */
+  width: clamp(240px, 16vw, 300px);
   min-height: 240px;
   display: flex;
   flex-direction: column;
@@ -101,7 +110,7 @@ form {
 .note h3,
 .note p {
   color: black;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8); /* optional */
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .note-icon {
@@ -114,6 +123,7 @@ form {
 .note-btn-style {
   display: flex;
   justify-content: space-around;
+  padding: 16px 0 0;
 }
 
 .note-icon:hover {
@@ -123,7 +133,7 @@ form {
 .footer-text {
   display: flex;
   justify-content: center;
-  font-size: 1.2em;
+  font-size: clamp(16px, 4vw, 24px);
   color: rgb(0, 0, 0);
   font-family: 'Fredoka', sans-serif;
 }
