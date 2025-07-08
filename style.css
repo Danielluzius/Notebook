@@ -102,3 +102,11 @@ form {
   margin-top: 5px;
   padding: 10px 13px;
 }
+
+.footer-text {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2em;
+  color: rgb(0, 0, 0);
+  font-family: 'Fredoka', sans-serif;
+}
