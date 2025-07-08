@@ -30,14 +30,15 @@
                 <section>
 
                     <div class="input-wrapper">
-                        <form onsubmit="addNote(), saveData(); return false;">
+                        <form onsubmit="addNote(); saveData(); return false;">
                             <p>Aufgabenname</p>
-                            <input id="note_title_input" type="text" placeholder="Titel eingeben">
+                            <input id="note_title_input" type="text" placeholder="Titel eingeben" required>
                             <p>Beschreibung</p>
-                            <input id="note_content_input" type="text" placeholder="Inhalt eingeben">
-                            <button type="button" onclick="addNote(), saveData()">Notiz hinzufügen</button>
+                            <input id="note_content_input" type="text" placeholder="Inhalt eingeben" required>
+                            <button type="submit">Notiz hinzufügen</button>
                         </form>
                     </div>
+
 
                     <h2>Notizen</h2>
                     <div id="content"></div>

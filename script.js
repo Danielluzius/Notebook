@@ -157,43 +157,43 @@ function getFromLocalStorage() {
 // Sie überprüft, ob die Notizen im Local Storage vorhanden sind und lädt sie in die
 
 function getNotesFromLocalStorage() {
-  let myArr = JSON.parse(localStorage.getItem('notes'));
-  let myArrTitle = JSON.parse(localStorage.getItem('notesTitle'));
+  let note = JSON.parse(localStorage.getItem('notes'));
+  let noteTitle = JSON.parse(localStorage.getItem('notesTitle'));
 
-  if (myArr === null) {
-    myArr = [];
+  if (note === null) {
+    note = [];
   }
-  if (myArrTitle === null) {
-    myArrTitle = [];
+  if (noteTitle === null) {
+    noteTitle = [];
   }
-  notes = myArr;
-  notesTitle = myArrTitle;
+  notes = note;
+  notesTitle = noteTitle;
 }
 
 function getArchivedFromLocalStorage() {
-  let myArrArchived = JSON.parse(localStorage.getItem('archivedNotes'));
-  let myArrArchivedTitle = JSON.parse(localStorage.getItem('archivedNotesTitle'));
+  let archivedNote = JSON.parse(localStorage.getItem('archivedNotes'));
+  let archivedNoteTitle = JSON.parse(localStorage.getItem('archivedNotesTitle'));
 
-  if (myArrArchived === null) {
-    myArrArchived = [];
+  if (archivedNote === null) {
+    archivedNote = [];
   }
-  if (myArrArchivedTitle === null) {
-    myArrArchivedTitle = [];
+  if (archivedNoteTitle === null) {
+    archivedNoteTitle = [];
   }
-  archivedNotes = myArrArchived;
-  archivedNotesTitle = myArrArchivedTitle;
+  archivedNotes = archivedNote;
+  archivedNotesTitle = archivedNoteTitle;
 }
 
 function getTrashedFromLocalStorage() {
-  let myArrTrashed = JSON.parse(localStorage.getItem('trashedNotes'));
-  let myArrTrashedTitle = JSON.parse(localStorage.getItem('trashedNotesTitle'));
+  let trashedNote = JSON.parse(localStorage.getItem('trashedNotes'));
+  let trashedNoteTitle = JSON.parse(localStorage.getItem('trashedNotesTitle'));
 
-  if (myArrTrashed === null) {
-    myArrTrashed = [];
+  if (trashedNote === null) {
+    trashedNote = [];
   }
-  if (myArrTrashedTitle === null) {
-    myArrTrashedTitle = [];
+  if (trashedNoteTitle === null) {
+    trashedNoteTitle = [];
   }
-  trashedNotes = myArrTrashed;
-  trashedNotesTitle = myArrTrashedTitle;
+  trashedNotes = trashedNote;
+  trashedNotesTitle = trashedNoteTitle;
 }
