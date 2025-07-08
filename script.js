@@ -49,6 +49,7 @@ function addNote() {
   notes.push(noteInput);
   notesTitle.push(titleInput);
 
+  saveToLocalStorage();
   renderNotes();
 
   titleInputRef.value = '';
@@ -110,18 +111,6 @@ function deleteNote(indexTrashedNote) {
   trashedNotes.splice(indexTrashedNote, 1);
 
   init();
-}
-
-function saveData() {
-  let titleInputRef = document.getElementById('note_title_input');
-  let contentInputRef = document.getElementById('note_content_input');
-
-  if (titleInputRef.value != '' && contentInputRef.value != '') {
-    notes.push(contentInputRef.value);
-  }
-
-  init();
-  contentInputRef.value = '';
 }
 
 function saveToLocalStorage() {
