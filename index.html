@@ -30,20 +30,20 @@
                     <div class="input-wrapper">
                         <form onsubmit="addNote(); return false;">
                             <p>Aufgabenname</p>
-                            <input class="input-field" id="note_title_input" type="text" placeholder="Titel eingeben"
-                                required>
+                            <input class="input-field" id="note_title_input" maxlength="16" type="text"
+                                placeholder="Titel eingeben" required>
                             <p>Beschreibung</p>
-                            <input class="input-field" id="note_content_input" type="text" placeholder="Inhalt eingeben"
-                                required>
+                            <input class="input-field" id="note_content_input" maxlength="30" type="text"
+                                placeholder="Inhalt eingeben" required>
                             <button class="input-btn" type="submit"> Notiz hinzufügen </button>
                         </form>
-                        <h2>Notizen</h2>
-                        <div id="content" class="note-container"></div>
-                        <h2>Archiv</h2>
-                        <div id="archive_content" class="note-container"></div>
-                        <h2>Papierkorb</h2>
-                        <div id="trash_content" class="note-container"></div>
                     </div>
+                    <h2>Notizen</h2>
+                    <div id="content" class="note-container"></div>
+                    <h2>Archiv</h2>
+                    <div id="archive_content" class="note-container"></div>
+                    <h2>Papierkorb</h2>
+                    <div id="trash_content" class="note-container"></div>
                 </section>
             </div>
         </main>
