@@ -18,10 +18,6 @@ function renderNotes() {
   }
 }
 
-function getNoteTemplate(indexNote) {
-  return `<p>+ title: ${notesTitle[indexNote]} -> ${notes[indexNote]} <button onclick="pushNoteToTrash(${indexNote})">X</button></p>`;
-}
-
 function renderTrashedNotes() {
   let trashedContentRef = document.getElementById('trash_content');
   trashedContentRef.innerHTML = '';
@@ -29,10 +25,6 @@ function renderTrashedNotes() {
   for (let indexTrashedNote = 0; indexTrashedNote < trashedNotes.length; indexTrashedNote++) {
     trashedContentRef.innerHTML += getTrashedNoteTemplate(indexTrashedNote);
   }
-}
-
-function getTrashedNoteTemplate(indexTrashedNote) {
-  return `<p>+ title: ${trashedNotesTitle[indexTrashedNote]} -> ${trashedNotes[indexTrashedNote]} <button onclick="deleteNote(${indexTrashedNote})">X</button></p>`;
 }
 
 // notizen hinzufügen
