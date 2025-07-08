@@ -32,9 +32,9 @@
                     <div class="input-wrapper">
                         <form onsubmit="addNote(), saveData(); return false;">
                             <p>Aufgabenname</p>
-                            <input id="note_title_input" type="text" placeholder="Titel eingeben">
+                            <input id="note_title_input" type="text" min="1" max="100" placeholder="Titel eingeben">
                             <p>Beschreibung</p>
-                            <input id="note_content_input" type="text" placeholder="Inhalt eingeben">
+                            <input id="note_content_input" type="text" min="1" max="500" placeholder="Inhalt eingeben">
                             <button type="button" onclick="addNote(), saveData()">Notiz hinzufügen</button>
                         </form>
                     </div>

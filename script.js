@@ -1,10 +1,9 @@
-// notizen anzeigen lassen
-let notesTitle = [];
-let notes = [];
-let archivedNotesTitle = [];
-let archivedNotes = [];
-let trashedNotesTitle = [];
-let trashedNotes = [];
+let notesTitle = []; // Array für Notizen Titel
+let notes = []; // Array für Notizen Inhalt
+let archivedNotesTitle = []; // Array für archivierte Notizen Titel
+let archivedNotes = []; // Array für archivierte Notizen Inhalt
+let trashedNotesTitle = []; // Array für Papierkorb Notizen Titel
+let trashedNotes = []; // Array für Papierkorb Notizen Inhalt
 
 function init() {
   renderNotes();
@@ -38,7 +37,8 @@ function renderTrashedNotes() {
   }
 }
 
-// notizen hinzufügen
+// Notizen hinzufügen
+// Diese Funktion wird aufgerufen, wenn der Benutzer eine Notiz hinzufügen möchte.
 function addNote() {
   let titleInputRef = document.getElementById('note_title_input');
   let titleInput = titleInputRef.value;
@@ -54,7 +54,7 @@ function addNote() {
   noteInputRef.value = '';
 }
 
-// notizen Archivieren
+// Notizen in das Archiv verschieben
 function pushNoteToArchive(indexNote) {
   let archivedNote = notes.splice(indexNote, 1);
   archivedNotes.push(archivedNote);
@@ -65,7 +65,7 @@ function pushNoteToArchive(indexNote) {
   renderArchivedNotes();
 }
 
-// notizen in den Papierkorb verschieben
+// Notizen in den Papierkorb verschieben
 function pushNoteToTrash(indexNote) {
   let trashNote = notes.splice(indexNote, 1);
   trashedNotes.push(trashNote);
@@ -76,7 +76,7 @@ function pushNoteToTrash(indexNote) {
   renderTrashedNotes();
 }
 
-// archivierte notizen zurück in die notizen verschieben
+// archivierte Notizen zurück in die Notizen verschieben
 function pushArchivedNoteToNotes(indexArchivedNote) {
   let restoredNote = archivedNotes.splice(indexArchivedNote, 1);
   notes.push(restoredNote);
@@ -88,7 +88,7 @@ function pushArchivedNoteToNotes(indexArchivedNote) {
   renderArchivedNotes();
 }
 
-// archivierte notizen in den Papierkorb verschieben
+// archivierte Notizen in den Papierkorb verschieben
 function pushArchivedNoteToTrash(indexArchivedNote) {
   let trashedNote = archivedNotes.splice(indexArchivedNote, 1);
   trashedNotes.push(trashedNote);
@@ -100,7 +100,7 @@ function pushArchivedNoteToTrash(indexArchivedNote) {
   renderTrashedNotes();
 }
 
-// papierkorb notizen zurück in die notizen verschieben
+// Papierkorb Notizen zurück in die Notizen verschieben
 function pushRestoredNoteToNotes(indexTrashedNote) {
   let restoredNote = trashedNotes.splice(indexTrashedNote, 1);
   notes.push(restoredNote);
@@ -112,15 +112,13 @@ function pushRestoredNoteToNotes(indexTrashedNote) {
   renderTrashedNotes();
 }
 
-// notizen löschen
-
+// Notizen löschen
 function deleteNote(indexTrashedNote) {
   trashedNotes.splice(indexTrashedNote, 1);
   renderTrashedNotes();
 }
 
-// Local Storage
-
+// Funktion zum Speichern der Notizen
 function saveData() {
   let titleInputRef = document.getElementById('note_title_input');
   let contentInputRef = document.getElementById('note_content_input');
