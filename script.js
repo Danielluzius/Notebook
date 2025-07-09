@@ -6,7 +6,6 @@ let trashedNotesTitle = [];
 let trashedNotes = [];
 
 function init() {
-  saveToLocalStorage();
   getFromLocalStorage();
   renderNotes();
   renderArchivedNotes();
@@ -63,6 +62,7 @@ function pushNoteToArchive(indexNote) {
   let archivedTitle = notesTitle.splice(indexNote, 1);
   archivedNotesTitle.push(archivedTitle);
 
+  saveToLocalStorage();
   init();
 }
 
@@ -73,6 +73,7 @@ function pushNoteToTrash(indexNote) {
   let trashNotesTitle = notesTitle.splice(indexNote, 1);
   trashedNotesTitle.push(trashNotesTitle);
 
+  saveToLocalStorage();
   init();
 }
 
@@ -83,6 +84,7 @@ function pushArchivedNoteToNotes(indexArchivedNote) {
   let restoredTitle = archivedNotesTitle.splice(indexArchivedNote, 1);
   notesTitle.push(restoredTitle);
 
+  saveToLocalStorage();
   init();
 }
 
@@ -93,6 +95,7 @@ function pushArchivedNoteToTrash(indexArchivedNote) {
   let trashedTitle = archivedNotesTitle.splice(indexArchivedNote, 1);
   trashedNotesTitle.push(trashedTitle);
 
+  saveToLocalStorage();
   init();
 }
 
@@ -103,6 +106,7 @@ function pushRestoredNoteToNotes(indexTrashedNote) {
   let restoredTitle = trashedNotesTitle.splice(indexTrashedNote, 1);
   notesTitle.push(restoredTitle);
 
+  saveToLocalStorage();
   init();
 }
 
@@ -110,6 +114,7 @@ function deleteNote(indexTrashedNote) {
   trashedNotesTitle.splice(indexTrashedNote, 1);
   trashedNotes.splice(indexTrashedNote, 1);
 
+  saveToLocalStorage();
   init();
 }
 
