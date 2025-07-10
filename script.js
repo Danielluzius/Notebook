@@ -82,19 +82,12 @@ function deleteNote(indexTrashedNote) {
 }
 
 function saveToLocalStorage() {
-  localStorage.setItem('notes', JSON.stringify(allNotes.notes));
-  localStorage.setItem('notesTitle', JSON.stringify(allNotes.notesTitle));
-  localStorage.setItem('archivedNotes', JSON.stringify(allNotes.archivedNotes));
-  localStorage.setItem('archivedNotesTitle', JSON.stringify(allNotes.archivedNotesTitle));
-  localStorage.setItem('trashedNotes', JSON.stringify(allNotes.trashedNotes));
-  localStorage.setItem('trashedNotesTitle', JSON.stringify(allNotes.trashedNotesTitle));
+  localStorage.setItem('allNotes', JSON.stringify(allNotes));
 }
 
 function getFromLocalStorage() {
-  allNotes.notes = JSON.parse(localStorage.getItem('notes')) || [];
-  allNotes.notesTitle = JSON.parse(localStorage.getItem('notesTitle')) || [];
-  allNotes.archivedNotes = JSON.parse(localStorage.getItem('archivedNotes')) || [];
-  allNotes.archivedNotesTitle = JSON.parse(localStorage.getItem('archivedNotesTitle')) || [];
-  allNotes.trashedNotes = JSON.parse(localStorage.getItem('trashedNotes')) || [];
-  allNotes.trashedNotesTitle = JSON.parse(localStorage.getItem('trashedNotesTitle')) || [];
+  let saveAllNotes = JSON.parse(localStorage.getItem('allNotes'));
+  if (saveAllNotes) {
+    allNotes = saveAllNotes;
+  }
 }
